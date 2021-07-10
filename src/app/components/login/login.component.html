@@ -1,1 +1,45 @@
-<p>login works!</p>
+<div class="d-flex justify-content-center flex-column h-100 align-items-center">
+  <img src="./assets/carLogo.png" alt="image" />
+  <form class="d-flex flex-column align-items-stretch w-50 mt-4"  [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Login</mat-label>
+      <input
+        matInput
+        placeholder="Put here your login"
+        formControlName="login"
+      />
+      <mat-error *ngIf="form.controls.login.errors?.required">Login is required</mat-error>
+      <mat-error *ngIf="form.controls.login.errors?.maxlength">Login should be 10 characters at most</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="Put here your password"
+        formControlName="password"
+      />
+      <mat-error *ngIf="form.controls.password.errors?.required">Password is required</mat-error>
+      <mat-error *ngIf="form.controls.password.errors?.minlength || form.controls.password.errors?.maxlength">Password should be 10-20 characters long</mat-error>
+    </mat-form-field>
+    <div class="d-flex justify-content-between">
+      <button
+        mat-raised-button
+        color="basic"
+        routerLink="/signup"
+        type="button"
+      >
+        Go to Signup
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="login()"
+        [disabled]="form.invalid"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</div>

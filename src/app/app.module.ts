@@ -14,6 +14,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./meta-modules/material-module";
 import { AppRoutingModule } from "./meta-modules/routing-module";
 import { ApiModule } from "./meta-modules/api-module";
+import { ReactiveFormsModule } from "@angular/forms";
+
+//providers
+import { AccessGuard } from "./guards/access.guard";
+import { AuthService } from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -29,9 +34,10 @@ import { ApiModule } from "./meta-modules/api-module";
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    ApiModule
+    ApiModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AccessGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

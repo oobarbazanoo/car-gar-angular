@@ -1,1 +1,6 @@
-<p>header works!</p>
+<div *ngIf="login" class="d-flex justify-content-end align-items-center p-3">
+  <div class="me-3">Logged in as <span class="text-info">{{ login }}</span></div>
+  <button mat-raised-button color="basic" (click)="logout()" type="button">
+    Logout
+  </button>
+</div>

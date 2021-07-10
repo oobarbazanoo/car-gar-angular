@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { CarsPlpComponent } from "../components/cars-plp/cars-plp.component";
 import { LoginComponent } from "../components/login/login.component";
 import { SignupComponent } from "../components/signup/signup.component";
-import { AccessGuard } from "../guards/access.guard";
+import { AccessGuard as AccessGuard } from "../guards/access.guard";
 
 const routes: Routes = [
   {
@@ -14,16 +14,20 @@ const routes: Routes = [
   {
     path: "cars",
     component: CarsPlpComponent,
-    data: { requiresLogin: true },
+    data: { whenNotLoggedRedirectTo: "login" },
     canActivate: [AccessGuard]
   },
   {
     path: "login",
-    component: LoginComponent
+    component: LoginComponent,
+    data: { whenLoggedRedirectTo: "cars" },
+    canActivate: [AccessGuard]
   },
   {
     path: "signup",
-    component: SignupComponent
+    component: SignupComponent,
+    data: { whenLoggedRedirectTo: "cars" },
+    canActivate: [AccessGuard]
   }
 ];
 
