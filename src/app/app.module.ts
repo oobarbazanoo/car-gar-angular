@@ -13,6 +13,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./meta-modules/material-module";
 import { AppRoutingModule } from "./meta-modules/routing-module";
+import { ApiModule } from "./meta-modules/api-module";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AppRoutingModule } from "./meta-modules/routing-module";
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ApiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
