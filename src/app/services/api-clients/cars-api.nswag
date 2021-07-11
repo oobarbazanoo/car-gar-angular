@@ -3,14 +3,14 @@
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
-      "url": "http://localhost:5003/swagger/v1/swagger.json",
+      "url": "http://localhost:5005/swagger/v1/swagger.json",
       "output": null,
       "newLineBehavior": "Auto"
     }
   },
   "codeGenerators": {
     "openApiToTypeScriptClient": {
-      "className": "AuthApi",
+      "className": "CarsApi",
       "moduleName": "",
       "namespace": "",
       "typeScriptVersion": 2.7,
@@ -56,7 +56,7 @@
       "convertConstructorInterfaceData": false,
       "importRequiredTypes": true,
       "useGetBaseUrlMethod": false,
-      "baseUrlTokenName": "AuthApiBaseUrl",
+      "baseUrlTokenName": "CarsApiBaseUrl",
       "queryNullValue": "",
       "useAbortSignal": false,
       "inlineNamedDictionaries": false,
@@ -68,7 +68,7 @@
       "checksumCacheEnabled": false,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "auth-api.ts",
+      "output": "cars-api.ts",
       "newLineBehavior": "Auto"
     }
   }
