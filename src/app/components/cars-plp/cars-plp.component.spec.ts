@@ -23,12 +23,4 @@ describe("CarsPlpComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
-
-  it("should increment total cart count on car addition", () => {
-    const fixture = TestBed.createComponent(CarsPlpComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    compiled.querySelector()
-    expect(compiled.querySelector('mat-icon').textContent).toBe('0');
-  });
 });
