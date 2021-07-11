@@ -19,6 +19,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 //providers
 import { AccessGuard } from "./guards/access.guard";
 import { AuthService } from "./services/auth.service";
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { CarsService } from "./services/cars.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { AuthService } from "./services/auth.service";
     CarPdpComponent,
     HeaderComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { AuthService } from "./services/auth.service";
     ApiModule,
     ReactiveFormsModule
   ],
-  providers: [AccessGuard, AuthService],
+  providers: [AccessGuard, AuthService, CarsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

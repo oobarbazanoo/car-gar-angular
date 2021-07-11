@@ -1,6 +1,19 @@
-<div *ngIf="login" class="d-flex justify-content-end align-items-center p-3">
-  <div class="me-3">Logged in as <span class="text-info">{{ login }}</span></div>
-  <button mat-raised-button color="basic" (click)="logout()" type="button">
-    Logout
-  </button>
+<div
+  *ngIf="login"
+  class="d-flex justify-content-between align-items-center p-3"
+>
+  <div class="d-flex align-items-center">
+    <mat-icon [matBadge]="carsService.numberOfCars | async" matBadgeColor="accent" aria-hidden="false" aria-label="shopping cart" class="me-3">shopping_cart</mat-icon>
+  </div>
+
+  <a mat-stroked-button [routerLink]="['/cars']">View all cars</a>
+
+  <div class="d-flex align-items-center">
+    <div class="me-3">
+      Logged in as <span class="text-info">{{ login }}</span>
+    </div>
+    <button mat-raised-button color="basic" (click)="logout()" type="button">
+      Logout
+    </button>
+  </div>
 </div>
