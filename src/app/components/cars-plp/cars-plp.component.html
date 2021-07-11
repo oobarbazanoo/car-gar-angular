@@ -1,1 +1,61 @@
-<p>cars-plp works!</p>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let warehouse of warehouses">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <div class="text-info">
+          {{ warehouse.name }} ({{ warehouse.location }})
+        </div>
+      </mat-panel-title>
+      <mat-panel-description>
+        Total cars: {{ warehouse.cars ? warehouse.cars.length : 0 }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-list-item class="mat-h2" *ngFor="let car of warehouse.cars">
+      <div
+        class="
+          p-2
+          ps-4
+          m-2
+          border border-primary
+          rounded
+          d-flex
+          justify-content-between
+          align-items-center
+        "
+      >
+        <div class="d-flex">
+          <div [class.text-secondary]="!car.licensed">
+            {{ car.model }} {{ car.licensed ? "" : "(not licensed)" }}
+          </div>
+          <a
+            mat-stroked-button
+            class="ms-3"
+            *ngIf="car.licensed"
+            [routerLink]="['/car', warehouse.id, car.id]"
+            >Details</a
+          >
+        </div>
+        <ng-container *ngIf="car.licensed">
+          <button
+            *ngIf="!car.inCart"
+            mat-raised-button
+            color="accent"
+            type="button"
+            (click)="addToCart(warehouse.id, car)"
+          >
+            Add to cart
+          </button>
+          <button
+            *ngIf="car.inCart"
+            mat-stroked-button
+            color="accent"
+            type="button"
+            (click)="removeFromCart(warehouse.id, car)"
+          >
+            Remove from cart
+          </button>
+        </ng-container>
+      </div>
+    </mat-list-item>
+  </mat-expansion-panel>
+</mat-accordion>

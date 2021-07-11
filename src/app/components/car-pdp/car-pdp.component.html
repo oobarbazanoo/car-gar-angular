@@ -1,1 +1,57 @@
-<p>car-pdp works!</p>
+<div class="container" *ngIf="!noSuchCar">
+  <div class="row d-flex justify-content-around">
+    <mat-card class="col-5 me-2"
+      >Made by: <span class="text-primary">{{ car?.make }}</span></mat-card
+    >
+    <mat-card class="col-5"
+      >Model: <span class="text-primary">{{ car?.model }}</span></mat-card
+    >
+  </div>
+
+  <div class="row mt-2 d-flex justify-content-around">
+    <mat-card class="col-5 me-2"
+      >Year: <span class="text-primary">{{ car?.yearModel }}</span></mat-card
+    >
+    <mat-card class="col-5"
+      >Price: <span class="text-primary">{{ car?.price }}</span></mat-card
+    >
+  </div>
+
+  <div class="row mt-2  d-flex justify-content-around">
+    <mat-card class="col-5"
+      >Licensed:
+      <span class="text-primary">{{
+        car?.licensed ? "yes" : "no"
+      }}</span></mat-card
+    >
+    <mat-card class="col-5"
+      >Added date:
+      <span class="text-primary">{{
+        car?.added | date: "dd/MM/yyyy"
+      }}</span></mat-card
+    >
+  </div>
+
+  <div class="row mt-2 d-flex justify-content-around">
+    <mat-card class="col-5 me-2"
+      >Warehouse:
+      <span class="text-info">{{ car?.warehouseName }}</span></mat-card
+    >
+    <mat-card class="col-5"
+      >Warehouse location:
+      <span class="text-info">{{ car?.warehouseLocation }}</span></mat-card
+    >
+  </div>
+
+  <div class="row mt-2 justify-content-center">
+    <button *ngIf="!car?.inCart" mat-raised-button color="accent" type="button" class="col-5" (click)="addToCart()">
+      Add to cart
+    </button>
+    <button *ngIf="car?.inCart" mat-stroked-button color="accent" type="button" class="col-5" (click)="removeFromCart()">
+      Remove from cart
+    </button>
+  </div>
+</div>
+<div *ngIf="noSuchCar" class="d-flex justify-content-center">
+    <span class="mat-h2 text-danger">The car was not found or is not licensed</span>
+</div>

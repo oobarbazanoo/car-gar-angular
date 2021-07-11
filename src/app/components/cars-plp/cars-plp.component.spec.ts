@@ -1,16 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { AppModule } from "src/app/app.module";
 
-import { CarsPlpComponent } from './cars-plp.component';
+import { CarsPlpComponent } from "./cars-plp.component";
 
-describe('CarsPlpComponent', () => {
+describe("CarsPlpComponent", () => {
   let component: CarsPlpComponent;
   let fixture: ComponentFixture<CarsPlpComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CarsPlpComponent ]
-    })
-    .compileComponents();
+      declarations: [CarsPlpComponent],
+      imports: [AppModule]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +20,15 @@ describe('CarsPlpComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should increment total cart count on car addition", () => {
+    const fixture = TestBed.createComponent(CarsPlpComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    compiled.querySelector()
+    expect(compiled.querySelector('mat-icon').textContent).toBe('0');
   });
 });
