@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
 import { AppModule } from "src/app/app.module";
 import { CarsService } from "src/app/services/cars.service";
 import { CarsServiceMock } from "src/app/services/mocks/cars.service.mock";
@@ -12,7 +13,7 @@ describe("HeaderComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderComponent],
-      imports: [AppModule],
+      imports: [AppModule, RouterTestingModule],
       providers: [{ provide: CarsService, useClass: CarsServiceMock }]
     }).compileComponents();
   });
